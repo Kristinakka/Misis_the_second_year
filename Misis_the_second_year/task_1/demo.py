@@ -1,5 +1,5 @@
 from datetime import datetime
-from Misis_the_second_year.task_1.main import Booking, BookingService, Employee, Workplace
+from main import Booking, BookingService, Employee, Workplace
 from validate import BookingValidator
 
 

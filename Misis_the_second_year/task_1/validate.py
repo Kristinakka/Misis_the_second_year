@@ -1,7 +1,6 @@
 from collections.abc import Iterable
 from typing import Protocol
-
-from Misis_the_second_year.task_1.main import Booking
+from main import Booking
 
 
 class BookingRule(Protocol):
