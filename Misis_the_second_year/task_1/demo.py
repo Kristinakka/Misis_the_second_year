@@ -1,5 +1,5 @@
 from datetime import datetime
-from main import Booking, BookingService, Employee, Workplace
+from Misis_the_second_year.task_1.main import Booking, BookingService, Employee, Workplace
 from validate import BookingValidator
 
 
@@ -12,23 +12,23 @@ def main() -> None:
     ]
     service = BookingService(workplaces, BookingValidator())
 
-    alice = Employee("alice", "Разработка", frozenset({"тихая зона"}))
-    bob = Employee("bob", "Продажи")
+    kolyan = Employee("kolyan", "Разработка", frozenset({"тихая зона"}))
+    kristina = Employee("kristina", "Продажи")
     start = datetime(2026, 10, 2, 9)
     end = datetime(2026, 10, 2, 12)
 
-    booking = service.create_booking(alice, workplaces[0], start, end)
+    booking = service.create_booking(kolyan, workplaces[0], start, end)
     print(
         f"Создано бронирование: {booking.workplace.id}, {booking.starts_at:%d.%m %H:%M}–{booking.ends_at:%H:%M}"
     )
 
     candidate = Booking(
-        bob, workplaces[0], datetime(2026, 10, 2, 10), datetime(2026, 10, 2, 11)
+        kristina, workplaces[0], datetime(2026, 10, 2, 10), datetime(2026, 10, 2, 11)
     )
     print("Причины отказа:", *service.check_booking(candidate), sep="\n- ")
 
-    available = service.available_workplaces(bob, start, end)
-    print("Доступные места для Боба:", ", ".join(place.id for place in available))
+    available = service.available_workplaces(kristina, start, end)
+    print("Доступные места для Кристины:", ", ".join(place.id for place in available))
 
 
 if __name__ == "__main__":
